@@ -1,36 +1,21 @@
-﻿// 1-3-1.cpp : 이 파일에는 'main' 함수가 포함됩니다. 거기서 프로그램 실행이 시작되고 종료됩니다.
+﻿// GetGlobalVal.cpp : 이 파일에는 'main' 함수가 포함됩니다. 거기서 프로그램 실행이 시작되고 종료됩니다.
 //
 
 #include <iostream>
-
-int BoxVolume(int length, int width, int height)
-{
-    return length * width * height;
-}
-
-int BoxVolume(int length, int width)
-{
-    return length * width * 1;
-}
-
-int BoxVolume(int length)
-{
-    return length * 1 * 1;
-}
+int val = 100;
 
 int main()
 {
-    std::cout << "[3, 3, 3] = " << BoxVolume(3, 3, 3) << std::endl;
-    std::cout << "[5, 5] = " << BoxVolume(5, 5) << std::endl;
-    std::cout << "[7] = " << BoxVolume(7) << std::endl;
-    // std::cout << "[D, D, D] = " << BoxVolume() << std::endl;      // length에 디폴트 값이 지정되지 않았으므로 컴파일 에러 발생
-    return 0;
+	int val = 10;
+	std::cout << val << std::endl;
+	std::cout << ::val << std::endl;
+	return 0;
 }
 
 // 프로그램 실행: <Ctrl+F5> 또는 [디버그] > [디버깅하지 않고 시작] 메뉴
 // 프로그램 디버그: <F5> 키 또는 [디버그] > [디버깅 시작] 메뉴
 
-// 시작을 위한 팁:
+// 시작을 위한 팁: 
 //   1. [솔루션 탐색기] 창을 사용하여 파일을 추가/관리합니다.
 //   2. [팀 탐색기] 창을 사용하여 소스 제어에 연결합니다.
 //   3. [출력] 창을 사용하여 빌드 출력 및 기타 메시지를 확인합니다.
