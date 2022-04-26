@@ -10,7 +10,7 @@ Part 04 ▶
 ## Part 01 C++로의 전환
 
 - [X] <b>Chapter 1</b> - C언어 기반의 C++ 1
-- [ ] <b>Chapter 2</b> - C언어 기반의 C++ 2
+- [X] <b>Chapter 2</b> - C언어 기반의 C++ 2
  
 ## Part 02 객체지향의 도입
 
