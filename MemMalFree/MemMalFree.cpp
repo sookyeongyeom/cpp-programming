@@ -1,24 +1,23 @@
-﻿// RefReturnOne.cpp : 이 파일에는 'main' 함수가 포함됩니다. 거기서 프로그램 실행이 시작되고 종료됩니다.
+﻿// MemMalFree.cpp : 이 파일에는 'main' 함수가 포함됩니다. 거기서 프로그램 실행이 시작되고 종료됩니다.
 //
 
 #include <iostream>
+#include <string.h>
+#include <stdlib.h>
 using namespace std;
 
-int& RefRetFuncOne(int& ref)
+char* MakeStrAdr(int len)
 {
-	ref++;
-	return ref;
+	char* str = (char*)malloc(sizeof(char) * len);
+	return str;
 }
 
 int main()
 {
-	int num1 = 1;
-	int& num2 = RefRetFuncOne(num1);	// 참조자를 반환받음으로써 참조 관계가 하나 더 추가됨 (num1-ref-num2)
-
-	num1++;
-	num2++;
-	cout << "num1 = " << num1 << endl;
-	cout << "num2 = " << num2 << endl;
+	char* str = MakeStrAdr(20);
+	strcpy(str, "I am Choco!");
+	cout << str << endl;
+	free(str);
 	return 0;
 }
 

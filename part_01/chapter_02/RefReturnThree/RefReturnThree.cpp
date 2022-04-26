@@ -1,25 +1,25 @@
-﻿// RefReturnOne.cpp : 이 파일에는 'main' 함수가 포함됩니다. 거기서 프로그램 실행이 시작되고 종료됩니다.
+﻿// RefReturnThree.cpp : 이 파일에는 'main' 함수가 포함됩니다. 거기서 프로그램 실행이 시작되고 종료됩니다.
 //
 
 #include <iostream>
 using namespace std;
 
-int& RefRetFuncOne(int& ref)
+int RefRetFuncTwo(int& ref)     // 일반 자료형으로 반환
 {
-	ref++;
-	return ref;
+    ref++;
+    return ref;
 }
 
 int main()
 {
-	int num1 = 1;
-	int& num2 = RefRetFuncOne(num1);	// 참조자를 반환받음으로써 참조 관계가 하나 더 추가됨 (num1-ref-num2)
+    int num1 = 1;
+    int num2 = RefRetFuncTwo(num1);     // 별개의 변수가 저장됨
 
-	num1++;
-	num2++;
-	cout << "num1 = " << num1 << endl;
-	cout << "num2 = " << num2 << endl;
-	return 0;
+    num1++;
+    num2 += 100;
+    cout << "num1 = " << num1 << endl;
+    cout << "num2 = " << num2 << endl;
+    return 0;
 }
 
 // 프로그램 실행: <Ctrl+F5> 또는 [디버그] > [디버깅하지 않고 시작] 메뉴

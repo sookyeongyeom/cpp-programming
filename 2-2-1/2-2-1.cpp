@@ -1,24 +1,18 @@
-﻿// RefReturnOne.cpp : 이 파일에는 'main' 함수가 포함됩니다. 거기서 프로그램 실행이 시작되고 종료됩니다.
+﻿// 2-2-1.cpp : 이 파일에는 'main' 함수가 포함됩니다. 거기서 프로그램 실행이 시작되고 종료됩니다.
 //
 
 #include <iostream>
 using namespace std;
 
-int& RefRetFuncOne(int& ref)
-{
-	ref++;
-	return ref;
-}
-
 int main()
 {
-	int num1 = 1;
-	int& num2 = RefRetFuncOne(num1);	// 참조자를 반환받음으로써 참조 관계가 하나 더 추가됨 (num1-ref-num2)
+	const int num = 12;
+	const int* ptr = &num;
+	const int* (&pref) = ptr;
 
-	num1++;
-	num2++;
-	cout << "num1 = " << num1 << endl;
-	cout << "num2 = " << num2 << endl;
+	cout << num << endl;
+	cout << *ptr << endl;
+	cout << *pref << endl;
 	return 0;
 }
 

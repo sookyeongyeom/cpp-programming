@@ -1,25 +1,23 @@
-﻿// RefReturnOne.cpp : 이 파일에는 'main' 함수가 포함됩니다. 거기서 프로그램 실행이 시작되고 종료됩니다.
+﻿// NewDelete.cpp : 이 파일에는 'main' 함수가 포함됩니다. 거기서 프로그램 실행이 시작되고 종료됩니다.
 //
-
+#define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
 using namespace std;
 
-int& RefRetFuncOne(int& ref)
+char* MakeStrAdr(int len)
 {
-	ref++;
-	return ref;
+    //char* str = (char*)malloc(sizeof(char) * len);
+    char* str = new char[len];  // malloc 대체 - void 포인터 형 변환 명시하지 않아도 되고, sizeof(char)*len 간단히 명시할 수 있음
+    return str;
 }
 
 int main()
 {
-	int num1 = 1;
-	int& num2 = RefRetFuncOne(num1);	// 참조자를 반환받음으로써 참조 관계가 하나 더 추가됨 (num1-ref-num2)
-
-	num1++;
-	num2++;
-	cout << "num1 = " << num1 << endl;
-	cout << "num2 = " << num2 << endl;
-	return 0;
+    char* str = MakeStrAdr(20);
+    strcpy(str, "I am so happy!");
+    cout << str << endl;
+    delete[]str;    // free 대체
+    return 0;
 }
 
 // 프로그램 실행: <Ctrl+F5> 또는 [디버그] > [디버깅하지 않고 시작] 메뉴
