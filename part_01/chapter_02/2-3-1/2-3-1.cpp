@@ -32,7 +32,7 @@ int main()
 
     delete pnt1;
     delete pnt2;
-    delete &pref; // 참조자 pref가 동적 할당한 포인터 변수 sum을 참조하고 있으므로 delete 해줌
+    delete &pref; // 참조자 pref가 동적 할당한 메모리 공간을 가리키는 포인터 변수 sum을 참조하고 있으므로 delete 해줌
     return 0;
 }
 
