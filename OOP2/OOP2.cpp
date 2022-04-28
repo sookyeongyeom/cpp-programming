@@ -34,6 +34,10 @@ public:
 	{
 		cout << id << ' ' << name << ' ' << balance << endl;
 	}
+	~Account()
+	{
+		delete[]name;
+	}
 };
 
 Account* allData[50];
@@ -121,6 +125,10 @@ void ShowMenu()
 		break;
 	case EXIT:
 		cout << "프로그램이 종료됩니다." << endl;
+		for (int i = 0; i < index; i++)
+		{
+			delete allData[i];
+		}
 		exit(0);
 	}
 }

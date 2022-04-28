@@ -7,9 +7,15 @@ using namespace std;
 
 namespace COMP_POS
 {
-    enum { CLERK, SENIOR, ASSIST, MANAGER };
+    enum
+    {
+        CLERK,
+        SENIOR,
+        ASSIST,
+        MANAGER
+    };
 
-    void ShowPositionInfo(int pos)      // enum-label 간 변환도 동일한 네임스페이스에서 정의함
+    void ShowPositionInfo(int pos) // enum-label 간 변환도 동일한 네임스페이스에서 정의함
     {
         switch (pos)
         {
@@ -32,12 +38,13 @@ namespace COMP_POS
 class NameCard
 {
 private:
-    char* name;
-    char* comp;
-    char* phone;
+    char *name;
+    char *comp;
+    char *phone;
     int pos;
+
 public:
-    NameCard(const char* myname, const char* mycomp, const char* myphone, int mypos)
+    NameCard(const char *myname, const char *mycomp, const char *myphone, int mypos)
         : pos(mypos)
     {
         name = new char[strlen(myname) + 1];
@@ -52,13 +59,14 @@ public:
         cout << "이름: " << name << endl;
         cout << "회사: " << comp << endl;
         cout << "전화번호: " << phone << endl;
-        cout << "직업: ", COMP_POS::ShowPositionInfo(pos), cout << endl << endl;
+        cout << "직업: ", COMP_POS::ShowPositionInfo(pos), cout << endl
+                                                                << endl;
     }
     ~NameCard()
     {
-        delete[]name;
-        delete[]comp;
-        delete[]phone;
+        delete[] name;
+        delete[] comp;
+        delete[] phone;
     }
 };
 
@@ -76,7 +84,7 @@ int main()
 // 프로그램 실행: <Ctrl+F5> 또는 [디버그] > [디버깅하지 않고 시작] 메뉴
 // 프로그램 디버그: <F5> 키 또는 [디버그] > [디버깅 시작] 메뉴
 
-// 시작을 위한 팁: 
+// 시작을 위한 팁:
 //   1. [솔루션 탐색기] 창을 사용하여 파일을 추가/관리합니다.
 //   2. [팀 탐색기] 창을 사용하여 소스 제어에 연결합니다.
 //   3. [출력] 창을 사용하여 빌드 출력 및 기타 메시지를 확인합니다.
