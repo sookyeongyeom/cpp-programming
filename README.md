@@ -17,7 +17,7 @@ Part 04 ▶ 22.05.02 월 - 22.05.04 수
 - [X] <b>Chapter 3</b> - 클래스의 기본
 - [X] <b>Chapter 4</b> - 클래스의 완성
 - [X] <b>Chapter 5</b> - 복사 생성자(Copy Constructor)
-- [ ] <b>Chapter 6</b> - friend와 static 그리고 const
+- [X] <b>Chapter 6</b> - friend와 static 그리고 const
 
 ## Part 03 객체지향의 전개
 
