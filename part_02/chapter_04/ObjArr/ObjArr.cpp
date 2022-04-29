@@ -8,13 +8,14 @@ using namespace std;
 class Person
 {
 private:
-    char* name;
+    char *name;
     int age;
+
 public:
-    Person(const char* myname, int myage)
+    Person(const char *myname, int myage)
     {
         int len = strlen(myname) + 1;
-        name = new char[len];       // 불필요한 메모리 공간의 낭비 또는 부족을 막기 위해 문자열의 길이만큼 메모리 공간을 동적 할당함
+        name = new char[len]; // 불필요한 메모리 공간의 낭비 또는 부족을 막기 위해 문자열의 길이만큼 메모리 공간을 동적 할당함
         strcpy(name, myname);
         age = myage;
     }
@@ -24,7 +25,7 @@ public:
         age = 0;
         cout << "Person() called!" << endl;
     }
-    void SetPersonInfo(char* myname, int myage)
+    void SetPersonInfo(char *myname, int myage)
     {
         name = myname;
         age = myage;
@@ -36,24 +37,24 @@ public:
     }
     ~Person()
     {
-        delete[]name;       // 생성자에서 할당한 메모리 공간을 소멸시킴
+        delete[] name; // 생성자에서 할당한 메모리 공간을 소멸시킴
         cout << "destructor called!" << endl;
     }
 };
 
 int main()
 {
-    Person parr[3];     // Person 객체를 여러개 담은 배열
-    char namestr[100];      // 이름을 받을 임시 바구니
-    char* strptr;       // 필요한 만큼의 공간을 동적 할당해서 임시 바구니에 받아둔 이름을 복사한 후 매개변수로 넘겨줄 포인터 변수
+    Person parr[3];    // Person 객체를 여러개 담은 배열
+    char namestr[100]; // 이름을 받을  바구니
+    char *strptr;      // 필요한 만큼의 공간을 동적 할당해서 임시 바구니에 받아둔 이름을 복사한 후 매개변수로 넘겨줄 포인터 변수
     int age;
 
     for (int i = 0; i < 3; i++)
     {
-        cout << "이름: ", cin >> namestr;     // 일단 바구니에 받음
+        cout << "이름: ", cin >> namestr; // 일단 바구니에 받음
         cout << "나이: ", cin >> age;
-        strptr = new char[strlen(namestr) + 1];     // 필요한 만큼의 메모리 공간을 동적 할당
-        strcpy(strptr, namestr);        // 할당한 공간에 바구니에 저장된 값을 복사
+        strptr = new char[strlen(namestr) + 1]; // 필요한 만큼의 메모리 공간을 동적 할당
+        strcpy(strptr, namestr);                // 할당한 공간에 바구니에 저장된 값을 복사
         parr[i].SetPersonInfo(strptr, age);     // 할당한 공간의 주소를 넘겨줌
     }
 
@@ -67,7 +68,7 @@ int main()
 // 프로그램 실행: <Ctrl+F5> 또는 [디버그] > [디버깅하지 않고 시작] 메뉴
 // 프로그램 디버그: <F5> 키 또는 [디버그] > [디버깅 시작] 메뉴
 
-// 시작을 위한 팁: 
+// 시작을 위한 팁:
 //   1. [솔루션 탐색기] 창을 사용하여 파일을 추가/관리합니다.
 //   2. [팀 탐색기] 창을 사용하여 소스 제어에 연결합니다.
 //   3. [출력] 창을 사용하여 빌드 출력 및 기타 메시지를 확인합니다.
