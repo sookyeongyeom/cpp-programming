@@ -21,7 +21,7 @@ Part 04 ▶ 22.05.02 월 - 22.05.04 수
 
 ## Part 03 객체지향의 전개
 
-- [ ] <b>Chapter 7</b> - 상속(Inheritance)의 이해
+- [X] <b>Chapter 7</b> - 상속(Inheritance)의 이해
 - [ ] <b>Chapter 8</b> - 상속과 다형성
 - [ ] <b>Chapter 9</b> - 가상(Virtual)의 원리와 다중상속
 

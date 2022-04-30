@@ -2,10 +2,34 @@
 //
 
 #include <iostream>
+using namespace std;
+
+class Rectangle
+{
+	int width;
+	int height;
+public:
+	Rectangle(int width, int height) : width(width), height(height) {}
+	void ShowAreaInfo()
+	{
+		cout << "Area = " << width * height << endl;
+	}
+};
+
+class Square : public Rectangle
+{
+public:
+	Square(int width) : Rectangle(width, width) {}
+};
 
 int main()
 {
-    std::cout << "Hello World!\n";
+	Rectangle rec(4, 3);
+	rec.ShowAreaInfo();
+
+	Square sqr(7);
+	sqr.ShowAreaInfo();
+	return 0;
 }
 
 // 프로그램 실행: <Ctrl+F5> 또는 [디버그] > [디버깅하지 않고 시작] 메뉴
