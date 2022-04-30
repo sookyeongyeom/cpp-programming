@@ -1,0 +1,1 @@
+D:\CPP\part_02\chapter_06\ConstStaticMember\Debug\ConstStaticMember.exe

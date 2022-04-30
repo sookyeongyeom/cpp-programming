@@ -1,55 +1,61 @@
-﻿// DestModel.cpp : 이 파일에는 'main' 함수가 포함됩니다. 거기서 프로그램 실행이 시작되고 종료됩니다.
+﻿// HASComposite.cpp : 이 파일에는 'main' 함수가 포함됩니다. 거기서 프로그램 실행이 시작되고 종료됩니다.
 //
 
-#define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
 using namespace std;
 
-class Person
+class Gun
 {
-    char* name;
+    int bullet;
 public:
-    Person(const char* name)
+    Gun(int bnum) : bullet(bnum) {}
+    void Shot()
     {
-        this->name = new char[strlen(name) + 1];
-        strcpy(this->name, name);
-    }
-    ~Person()
-    {
-        delete[]name;       // 자기껀 자기가 해제
-    }
-    void WhatYourName() const
-    {
-        cout << "My name is " << name << endl;
+        cout << "BBANG!" << endl;
+        bullet--;
     }
 };
 
-class UnivStudent : public Person
+class Police
 {
-    char* major;
+    int handcuffs;
+    Gun* pistol;
 public:
-    UnivStudent(const char* name, const char* major) : Person(name)
+    Police(int bnum, int bcuff) : handcuffs(bcuff)
     {
-        this->major = new char[strlen(major) + 1];
-        strcpy(this->major, major);
+        if (bnum > 0)
+            pistol = new Gun(bnum);
+        else
+            pistol = NULL;
     }
-    ~UnivStudent()
+    void PutHandcuff()
     {
-        delete[]major;      // 자기껀 자기가 해제
+        cout << "SNAP!" << endl;
+        handcuffs--;
     }
-    void WhoAreYou() const
+    void Shot()
     {
-        WhatYourName();
-        cout << "My major is " << major << endl << endl;
+        if (!pistol)
+            cout << "~No Gun~" << endl;
+        else
+            pistol->Shot();
+    }
+    ~Police()
+    {
+        if (pistol)
+            delete pistol;
     }
 };
 
 int main()
 {
-    UnivStudent choco("Choco", "Computer Science");
-    UnivStudent ponyo("Ponyo", "Design & Arts");
-    choco.WhoAreYou();
-    ponyo.WhoAreYou();
+    Police plc1(5, 3);
+    plc1.Shot();
+    plc1.PutHandcuff();
+
+    Police plc2(0, 3);      // 총이 없는 경찰
+    plc2.Shot();
+    plc2.PutHandcuff();
     return 0;
 }
 
