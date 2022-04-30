@@ -7,11 +7,12 @@ using namespace std;
 
 class Book
 {
-    char* title;
-    char* isbn;
+    char *title;
+    char *isbn;
     int price;
+
 public:
-    Book(const char* title, const char* isbn, int price) : price(price)
+    Book(const char *title, const char *isbn, int price) : price(price)
     {
         this->title = new char[strlen(title) + 1];
         strcpy(this->title, title);
@@ -24,13 +25,19 @@ public:
         cout << "ISBN: " << isbn << endl;
         cout << "가격: " << price << endl;
     }
+    ~Book()
+    {
+        delete[]title;
+        delete[]isbn;
+    }
 };
 
 class EBook : public Book
 {
-    char* DRMKey;
+    char *DRMKey;
+
 public:
-    EBook(const char* title, const char* isbn, int price, const char* DRMKey) : Book(title, isbn, price)
+    EBook(const char *title, const char *isbn, int price, const char *DRMKey) : Book(title, isbn, price)
     {
         this->DRMKey = new char[strlen(DRMKey) + 1];
         strcpy(this->DRMKey, DRMKey);
@@ -39,6 +46,10 @@ public:
     {
         ShowBookInfo();
         cout << "인증키: " << DRMKey << endl;
+    }
+    ~EBook()
+    {
+        delete[]DRMKey;
     }
 };
 
@@ -56,7 +67,7 @@ int main()
 // 프로그램 실행: <Ctrl+F5> 또는 [디버그] > [디버깅하지 않고 시작] 메뉴
 // 프로그램 디버그: <F5> 키 또는 [디버그] > [디버깅 시작] 메뉴
 
-// 시작을 위한 팁: 
+// 시작을 위한 팁:
 //   1. [솔루션 탐색기] 창을 사용하여 파일을 추가/관리합니다.
 //   2. [팀 탐색기] 창을 사용하여 소스 제어에 연결합니다.
 //   3. [출력] 창을 사용하여 빌드 출력 및 기타 메시지를 확인합니다.
