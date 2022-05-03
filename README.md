@@ -1,13 +1,13 @@
 # 윤성우의 열혈 C++ 프로그래밍
 
+[**C++ TIL**](https://github.com/sookyeongyeom/today-i-learned/tree/master/01.%20Language/C%2B%2B)
+
 ## 공부 일정
 
 Part 01 ▶ 22.04.25 월 - 22.04.26 화 ✔️  
 Part 02 ▶ 22.04.27 수 - 22.04.29 금 ✔️  
 Part 03 ▶ 22.04.30 토 - 22.05.01 일 ✔️  
 Part 04 ▶ 22.05.02 월 - 22.05.04 수
-
-[**C++ TIL**](https://github.com/sookyeongyeom/today-i-learned/tree/master/01.%20Language/C%2B%2B)
 
 ## Part 01 C++로의 전환
 
