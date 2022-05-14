@@ -4,68 +4,72 @@
 #include <iostream>
 using namespace std;
 
-class BoundCheck2DIntArray
+class BoundCheckIntArray
 {
-    int** arrptr;
-    int row, col;
-    int whichRow;
-    bool isRow;
-    BoundCheck2DIntArray(const BoundCheck2DIntArray& arr) {}
-    BoundCheck2DIntArray& operator=(const BoundCheck2DIntArray& arr) {}
+    int* arr;
+    int arrlen;
 public:
-    friend BoundCheck2DIntArray& SetRow(BoundCheck2DIntArray& ob, int n);
-    friend int& GetCol(BoundCheck2DIntArray& ob, int n);
-    BoundCheck2DIntArray(int row, int col) : row(row), col(col), isRow(true)
+    BoundCheckIntArray(int len) : arrlen(len)
     {
-        arrptr = new int*[row];
-
-        for (int i = 0; i < row; i++)
-            arrptr[i] = new int[col];
+        arr = new int[len];
     }
-    void operator[](int n)
+    int& operator[](int idx)
     {
-        if (isRow)
+        if (idx < 0 || idx >= arrlen)
         {
-            isRow = false;
-            SetRow(*this, n);
+            cout << "Array index out of bound exception" << endl;
+            exit(1);
         }
-        else
-        {
-            isRow = true;
-            GetCol(*this, n);
-        }
+        return arr[idx];
     }
-    void operator=(int n)
+    ~BoundCheckIntArray()
     {
-    }
-    ~BoundCheck2DIntArray()
-    {
-        for (int i = 0; i < row; i++)
-            delete[]arrptr[i];
-        delete[]arrptr;
+        delete[]arr;
     }
 };
 
-BoundCheck2DIntArray& SetRow(BoundCheck2DIntArray& ob, int n)
+class BoundCheck2DIntArray
 {
-    ob.whichRow = n;
-    return ob;
-}
-
-int& GetCol(BoundCheck2DIntArray& ob, int n)
-{
-    return ob.arrptr[ob.whichRow][n];
-}
-
-
+    BoundCheckIntArray** arr;
+    int arrlen;
+public:
+	BoundCheck2DIntArray(int row, int col) : arrlen(row)
+	{
+		arr = new BoundCheckIntArray*[row];
+		for (int i = 0; i < row; i++)
+			arr[i] = new BoundCheckIntArray(col);
+	}
+    BoundCheckIntArray& operator[](int idx)
+    {
+        if (idx < 0 || idx >= arrlen)
+        {
+            cout << "Array index out of bound exception" << endl;
+            exit(1);
+        }
+        return *arr[idx];
+    }
+    ~BoundCheck2DIntArray()
+    {
+        for (int i = 0; i < arrlen; i++)
+            delete arr[i];
+        delete[]arr;
+    }
+};
 
 int main()
 {
-    BoundCheck2DIntArray arr(3, 4);
+	BoundCheck2DIntArray arr(3, 4);
 
     for (int n = 0; n < 3; n++)
         for (int m = 0; m < 4; m++)
-            arr[n][m] = n;
+            arr[n][m] = n + m;
+
+    for (int n = 0; n < 3; n++)
+    {
+        for (int m = 0; m < 4; m++)
+            cout << arr[n][m] << ' ';
+        cout << endl;
+    }
 
     return 0;
 }
