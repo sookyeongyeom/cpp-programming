@@ -7,16 +7,17 @@ using namespace std;
 
 class BoundCheckIntArray
 {
-    int* arr;
+    int *arr;
     int arrlen;
-    BoundCheckIntArray(const BoundCheckIntArray& arr) {}
-    BoundCheckIntArray& operator=(const BoundCheckIntArray& arr) {}
+    BoundCheckIntArray(const BoundCheckIntArray &arr) {}
+    BoundCheckIntArray &operator=(const BoundCheckIntArray &arr) {}
+
 public:
     BoundCheckIntArray(int len) : arrlen(len)
     {
         arr = new int[len];
     }
-    int& operator[](int idx)
+    int &operator[](int idx)
     {
         if (idx < 0 || idx >= arrlen)
         {
@@ -25,7 +26,7 @@ public:
         }
         return arr[idx];
     }
-    int& operator[](int idx) const
+    int operator[](int idx) const
     {
         if (idx < 0 || idx >= arrlen)
         {
@@ -37,15 +38,15 @@ public:
     int GetArrLen() const { return arrlen; }
     ~BoundCheckIntArray()
     {
-        delete[]arr;
+        delete[] arr;
     }
 };
 
-void ShowAllData(const BoundCheckIntArray& ref)
+void ShowAllData(const BoundCheckIntArray &ref)
 {
     int len = ref.GetArrLen();
     for (int i = 0; i < len; i++)
-        cout << ref[i] << endl;         // operator[]를 const로 오버로딩하지않았을 시 이 부분에서 컴파일 에러 발생
+        cout << ref[i] << endl; // operator[]를 const로 오버로딩하지않았을 시 이 부분에서 컴파일 에러 발생
 }
 
 int main()
@@ -60,7 +61,7 @@ int main()
 // 프로그램 실행: <Ctrl+F5> 또는 [디버그] > [디버깅하지 않고 시작] 메뉴
 // 프로그램 디버그: <F5> 키 또는 [디버그] > [디버깅 시작] 메뉴
 
-// 시작을 위한 팁: 
+// 시작을 위한 팁:
 //   1. [솔루션 탐색기] 창을 사용하여 파일을 추가/관리합니다.
 //   2. [팀 탐색기] 창을 사용하여 소스 제어에 연결합니다.
 //   3. [출력] 창을 사용하여 빌드 출력 및 기타 메시지를 확인합니다.
