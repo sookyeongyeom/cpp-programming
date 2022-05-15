@@ -30,7 +30,7 @@ Part 04 ▶ 22.05.02 월 - 22.05.16 월
 ## Part 04 객체지향의 완성
 
 - [X] <b>Chapter 10</b> - 연산자 오버로딩 1
-- [ ] <b>Chapter 11</b> - 연산자 오버로딩 2
+- [X] <b>Chapter 11</b> - 연산자 오버로딩 2
 - [ ] <b>Chapter 12</b> - String 클래스의 디자인
 - [ ] <b>Chapter 13</b> - 템플릿(Template) 1
 - [ ] <b>Chapter 14</b> - 템플릿(Template) 2
