@@ -3,6 +3,7 @@
 #define __NORMAL_H__
 
 #include "Account.h"
+#include "../OOP9/String.h"
 
 /*
 클래스 이름: NormalAccount
@@ -13,7 +14,7 @@ class NormalAccount : public Account
 {
 	int ratio;
 public:
-	NormalAccount(int id, char* name, int balance, int ratio) : Account(id, name, balance), ratio(ratio) {}
+	NormalAccount(int id, String name, int balance, int ratio) : Account(id, name, balance), ratio(ratio) {}
 	virtual void Deposit(int money)
 	{
 		Account::Deposit(money);		// 원금추가

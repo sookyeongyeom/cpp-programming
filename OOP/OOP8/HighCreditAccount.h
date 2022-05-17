@@ -3,6 +3,7 @@
 #define __HIGH_H__
 
 #include "NormalAccount.h"
+#include "../OOP9/String.h"
 
 /*
 클래스 이름: HighCreditAccount
@@ -13,7 +14,7 @@ class HighCreditAccount : public NormalAccount
 {
 	int rank;
 public:
-	HighCreditAccount(int id, char* name, int balance, int ratio, int rank) : NormalAccount(id, name, balance, ratio), rank(rank) {}
+	HighCreditAccount(int id, String name, int balance, int ratio, int rank) : NormalAccount(id, name, balance, ratio), rank(rank) {}
 	virtual void Deposit(int money)
 	{
 		NormalAccount::Deposit(money);			// 원금+이자추가

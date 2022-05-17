@@ -3,6 +3,7 @@
 #include "NormalAccount.h"
 #include "HighCreditAccount.h"
 #include "BankingCommonDecl.h"
+#include "../OOP9/String.h"
 using namespace std;
 
 void AccountHandler::Create()
@@ -29,7 +30,7 @@ void AccountHandler::Create()
 void AccountHandler::CreateNormal()
 {
 	int id, balance, ratio;
-	char name[100];
+	String name;
 	cout << "[º¸Åë¿¹±Ý°èÁÂ °³¼³]" << endl;
 	cout << "°èÁÂID: ", cin >> id;
 	cout << "ÀÌ¸§: ", cin >> name;
@@ -42,7 +43,7 @@ void AccountHandler::CreateNormal()
 void AccountHandler::CreateHigh()
 {
 	int id, balance, ratio, rank;
-	char name[100];
+	String name;
 	cout << "[½Å¿ë½Å·Ú°èÁÂ °³¼³]" << endl;
 	cout << "°èÁÂID: ", cin >> id;
 	cout << "ÀÌ¸§: ", cin >> name;

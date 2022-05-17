@@ -3,35 +3,14 @@
 #include "Account.h"
 using namespace std;
 
-Account::Account(int id, char* name, int balance) : id(id), balance(balance)
-{
-	this->name = new char[strlen(name) + 1];
-	strcpy(this->name, name);
-}
-
-Account::Account(const Account& src) : id(src.id), balance(src.balance)
-{
-	name = new char[strlen(src.name) + 1];
-	strcpy(name, src.name);
-}
-
-Account& Account::operator=(const Account& src)			// 대입연산자
-{
-	id = src.id;
-	balance = src.balance;
-
-	delete[] name;
-	name = new char[strlen(src.name) + 1];
-	strcpy(name, src.name);
-	return *this;
-}
+Account::Account(int id, String name, int balance) : id(id), name(name), balance(balance) {}
 
 int Account::GetID() const
 {
 	return id;
 }
 
-char* Account::GetName() const
+String Account::GetName() const
 {
 	return name;
 }
@@ -49,9 +28,4 @@ void Account::Deposit(int money)
 void Account::Withdraw(int money)
 {
 	balance -= money;
-}
-
-Account::~Account()
-{
-	delete[]name;
 }

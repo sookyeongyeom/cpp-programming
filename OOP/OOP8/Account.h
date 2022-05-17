@@ -7,22 +7,23 @@
 클래스 유형: Entity 클래스
 */
 
+#include "../OOP9/String.h"
+
 class Account
 {
 private:
 	int id;
-	char* name;
+	String name;
 	int balance;
 public:
-	Account(int, char*, int);
+	Account(int, String, int);
 	Account(const Account&);
 	Account& operator=(const Account&);
 	int GetID() const;
-	char* GetName() const;
+	String GetName() const;
 	int GetBalance() const;
 	virtual void Deposit(int);
 	void Withdraw(int);
-	~Account();
 };
 
 #endif // !__ACCOUNT_H__
