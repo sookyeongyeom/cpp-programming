@@ -33,6 +33,6 @@ Part 04 ▶ 22.05.02 월 - 22.05.22 일
 - [X] <b>Chapter 11</b> - 연산자 오버로딩 2
 - [X] <b>Chapter 12</b> - String 클래스의 디자인
 - [X] <b>Chapter 13</b> - 템플릿(Template) 1
-- [ ] <b>Chapter 14</b> - 템플릿(Template) 2
+- [X] <b>Chapter 14</b> - 템플릿(Template) 2
 - [ ] <b>Chapter 15</b> - 예외처리(Exception Handling)
 - [ ] <b>Chapter 16</b> - C++의 형 변환 연산자와 맺는 글
